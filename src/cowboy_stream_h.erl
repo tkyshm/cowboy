@@ -111,7 +111,7 @@ execute(Req, Env, [Middleware|Tail]) ->
 			execute(Req2, Env2, Tail);
 		{suspend, Module, Function, Args} ->
 			proc_lib:hibernate(?MODULE, resume, [Env, Tail, Module, Function, Args]);
-		{stop, _Req2, _State} ->
+		{stop, _Req2} ->
 			ok %% @todo Maybe error reason should differ here and there.
 	end.
 
