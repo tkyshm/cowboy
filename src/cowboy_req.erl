@@ -1009,7 +1009,7 @@ set_bindings(HostInfo, PathInfo, Bindings, Req) ->
 
 -spec lock(Req) -> Req when Req::req().
 lock(Req) ->
-	Req#http_req{resp_state=locked}.
+	Req#{resp_state=>locked}.
 
 -spec to_list(req()) -> [{atom(), any()}].
 to_list(Req) ->
